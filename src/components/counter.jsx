@@ -12,8 +12,16 @@ class Counter extends Component {
     fontWeight: "bold"
   };
 
-  handleIncrement() {
-    console.log("Increment Clicked");
+  //Instead of this custom constuctor method which rebinds 'this' event handler
+//   constructor() {
+//       super();
+//       this.handleIncrement = this.handleIncrement.bind(this);
+//   }
+
+
+ //Arrow functions don't rebind 'this' keyword, they inherit it
+  handleIncrement = () => {
+    console.log("Increment Clicked", this.);
   }
 
   renderTags() {
