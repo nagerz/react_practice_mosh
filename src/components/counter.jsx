@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
+    value: this.props.value
     // tags: ["tag1", "tag2", "tag3"]
-    tags: []
+    // tags: []
   };
 
   styles = {
@@ -20,20 +20,20 @@ class Counter extends Component {
 
   //Arrow functions don't rebind 'this' keyword, they inherit it
   handleIncrement = () => {
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
 
-  renderTags() {
-    if (this.state.tags.length === 0) return <p>No tags</p>;
+  //   renderTags() {
+  //     if (this.state.tags.length === 0) return <p>No tags</p>;
 
-    return (
-      <ul>
-        {this.state.tags.map(tag => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
-    );
-  }
+  //     return (
+  //       <ul>
+  //         {this.state.tags.map(tag => (
+  //           <li key={tag}>{tag}</li>
+  //         ))}
+  //       </ul>
+  //     );
+  //   }
 
   render() {
     return (
@@ -47,26 +47,26 @@ class Counter extends Component {
         >
           Increment
         </button>
-        <ul>
+        {/* <ul>
           {this.state.tags.map(tag => (
             <li key={tag}>{tag}</li>
           ))}
         </ul>
         {this.state.tags.length === 0 && "Create new tag"}
-        {this.renderTags()}
+        {this.renderTags()} */}
       </div>
     );
   }
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
-    return count === 0 ? "Zero" : count;
+    const { value: value } = this.state;
+    return value === 0 ? "Zero" : value;
   }
 }
 
