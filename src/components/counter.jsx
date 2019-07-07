@@ -13,16 +13,15 @@ class Counter extends Component {
   };
 
   //Instead of this custom constuctor method which rebinds 'this' event handler
-//   constructor() {
-//       super();
-//       this.handleIncrement = this.handleIncrement.bind(this);
-//   }
+  //   constructor() {
+  //       super();
+  //       this.handleIncrement = this.handleIncrement.bind(this);
+  //   }
 
-
- //Arrow functions don't rebind 'this' keyword, they inherit it
+  //Arrow functions don't rebind 'this' keyword, they inherit it
   handleIncrement = () => {
-    console.log("Increment Clicked", this.);
-  }
+    this.setState({ count: this.state.count + 1 });
+  };
 
   renderTags() {
     if (this.state.tags.length === 0) return <p>No tags</p>;
